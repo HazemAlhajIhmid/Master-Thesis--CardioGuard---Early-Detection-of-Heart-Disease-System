@@ -58,8 +58,11 @@
         errorMsg = err.error || "API error";
         throw new Error(errorMsg);
       }
-      predictionResult = await response.json();
+      const data = await response.json();
+      console.log("API Response:", data);
+      predictionResult = data;
     } catch (err) {
+      console.error("Error:", err);
       predictionResult = null;
       alert(errorMsg || "Failed to get prediction. Please try again.");
     } finally {
