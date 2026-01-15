@@ -27,7 +27,9 @@
   let isCalculating = false;
   let predictionResult: any = null;
 
-  const API_BASE = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:5000";
+  const API_BASE =
+    import.meta.env.VITE_API_BASE_URL ??
+    "https://cardio-guard-api-prod-b2a0cfdbe9czbkgx.norwayeast-01.azurewebsites.net";
 
   async function calculateRisk() {
     isCalculating = true;
