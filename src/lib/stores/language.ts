@@ -103,6 +103,21 @@ export const translations = {
     // Footer
     rightsReserved: 'جميع الحقوق محفوظة',
     contactInfo: 'معلومات الاتصال',
+
+    // Field Info/Tooltips
+    ageInfo: 'العمر هو أحد العوامل المهمة في تقييم خطر الإصابة بأمراض القلب. المدى الطبيعي: 20-100 سنة. يزداد خطر الإصابة بأمراض القلب مع التقدم في العمر.',
+    sexInfo: 'الجنس يلعب دوراً في خطر الإصابة بأمراض القلب. الذكور عادة أكثر عرضة للإصابة بأمراض القلب في سن مبكرة مقارنة بالإناث.',
+    cpInfo: 'نوع ألم الصدر يساعد في تحديد نوع المشكلة القلبية:\n\n• الذبحة الصدرية النموذجية: ألم ضاغط في الصدر يحدث أثناء المجهود\n• الذبحة الصدرية غير النموذجية: ألم ليس له جميع خصائص الذبحة النموذجية\n• ألم غير ذبحي: ألم لا يرتبط بالقلب\n• بدون أعراض: عدم وجود أعراض',
+    trestbpsInfo: 'ضغط الدم أثناء الراحة (mmHg):\n\n• الطبيعي: 90-120 mmHg\n• مرتفع قليلاً: 120-139 mmHg\n• ارتفاع ضغط الدم: 140+ mmHg\n\nارتفاع ضغط الدم يزيد من خطر الإصابة بأمراض القلب.',
+    cholInfo: 'الكوليسترول في الدم (mg/dl):\n\n• المستوى المرغوب: أقل من 200 mg/dl\n• الحد الأعلى الطبيعي: 200-239 mg/dl\n• مرتفع: 240+ mg/dl\n\nارتفاع الكوليسترول يزيد من خطر تصلب الشرايين وأمراض القلب.',
+    fbsInfo: 'سكر الدم أثناء الصيام (mg/dl):\n\n• الطبيعي: أقل من 100 mg/dl\n• ما قبل السكري: 100-125 mg/dl\n• السكري: 126+ mg/dl\n\nهذا الاختبار يحدد ما إذا كان مستوى السكر أعلى من 120 mg/dl، مما قد يشير إلى مرض السكري.',
+    restecgInfo: 'تخطيط القلب الكهربائي أثناء الراحة (ECG):\n\n• طبيعي: لا توجد تغيرات\n• شذوذ ST-T: تغيرات في موجة ST أو T قد تشير إلى مشاكل في القلب\n• تضخم البطين الأيسر: زيادة سماكة جدار البطين الأيسر',
+    thalachInfo: 'معدل ضربات القلب الأقصى:\n\n• معدل القلب الأقصى المتوقع = 220 - العمر\n• المدى الطبيعي أثناء الاختبار: 60-220 نبضة/دقيقة\n\nيتم قياسه خلال اختبار الجهد لتقييم استجابة القلب.',
+    exangInfo: 'الذبحة الصدرية الناتجة عن التمارين:\n\n• نعم: حدوث ألم في الصدر أثناء ممارسة التمارين\n• لا: عدم حدوث ألم\n\nحدوث الذبحة أثناء التمارين قد يشير إلى نقص تروية القلب.',
+    oldpeakInfo: 'انخفاض ST بسبب التمارين مقارنة بالراحة:\n\n• الطبيعي: 0-1\n• غير طبيعي: > 2\n\nيقاس بالملي فولت ويشير إلى درجة نقص تروية عضلة القلب.',
+    slopeInfo: 'ميل قطعة ST في ذروة التمرين:\n\n• صاعد: إشارة إيجابية عادة\n• مستوي: قد يشير إلى مشكلة\n• هابط: إشارة تحذيرية قوية\n\nيساعد في تقييم شدة مرض الشريان التاجي.',
+    caInfo: 'عدد الأوعية الدموية الرئيسية (0-3):\n\nيتم تحديده باستخدام التصوير التألقي. كلما زاد العدد، زاد انسداد الشرايين وارتفع خطر الإصابة بأمراض القلب.\n\n• 0: لا يوجد انسداد\n• 1-3: عدد الأوعية المسدودة',
+    thalInfo: 'اختبار الثاليوم (Thalassemia):\n\n• طبيعي: تدفق دم طبيعي\n• عيب ثابت: عدم وصول الدم لمنطقة معينة (نسيج ميت)\n• عيب قابل للإصلاح: انخفاض التدفق أثناء الجهد لكن يتحسن مع الراحة\n\nيقيم تدفق الدم إلى عضلة القلب.',
   },
   en: {
     // Header
@@ -202,6 +217,21 @@ export const translations = {
     // Footer
     rightsReserved: 'All Rights Reserved',
     contactInfo: 'Contact Information',
+
+    // Field Info/Tooltips
+    ageInfo: 'Age is one of the key factors in assessing heart disease risk. Normal range: 20-100 years. The risk of heart disease increases with age.',
+    sexInfo: 'Sex plays a role in heart disease risk. Males are generally more susceptible to heart disease at an earlier age compared to females.',
+    cpInfo: 'Chest pain type helps identify the type of cardiac problem:\n\n• Typical Angina: Pressing chest pain occurring during exertion\n• Atypical Angina: Pain that doesn\'t have all typical angina characteristics\n• Non-anginal Pain: Pain not related to the heart\n• Asymptomatic: No symptoms',
+    trestbpsInfo: 'Resting Blood Pressure (mmHg):\n\n• Normal: 90-120 mmHg\n• Elevated: 120-139 mmHg\n• High Blood Pressure: 140+ mmHg\n\nHigh blood pressure increases the risk of heart disease.',
+    cholInfo: 'Serum Cholesterol (mg/dl):\n\n• Desirable: Less than 200 mg/dl\n• Borderline High: 200-239 mg/dl\n• High: 240+ mg/dl\n\nHigh cholesterol increases the risk of atherosclerosis and heart disease.',
+    fbsInfo: 'Fasting Blood Sugar (mg/dl):\n\n• Normal: Less than 100 mg/dl\n• Prediabetes: 100-125 mg/dl\n• Diabetes: 126+ mg/dl\n\nThis test determines if blood sugar is above 120 mg/dl, which may indicate diabetes.',
+    restecgInfo: 'Resting Electrocardiogram (ECG):\n\n• Normal: No changes\n• ST-T Abnormality: Changes in ST or T wave that may indicate heart problems\n• Left Ventricular Hypertrophy: Thickening of the left ventricle wall',
+    thalachInfo: 'Maximum Heart Rate Achieved:\n\n• Expected Max Heart Rate = 220 - Age\n• Normal range during test: 60-220 beats/min\n\nMeasured during stress test to assess heart response.',
+    exangInfo: 'Exercise Induced Angina:\n\n• Yes: Chest pain occurring during exercise\n• No: No pain\n\nAngina during exercise may indicate cardiac ischemia.',
+    oldpeakInfo: 'ST Depression induced by exercise relative to rest:\n\n• Normal: 0-1\n• Abnormal: > 2\n\nMeasured in millivolts, indicates degree of cardiac muscle ischemia.',
+    slopeInfo: 'Slope of peak exercise ST segment:\n\n• Upsloping: Usually positive sign\n• Flat: May indicate problem\n• Downsloping: Strong warning sign\n\nHelps assess severity of coronary artery disease.',
+    caInfo: 'Number of Major Vessels (0-3):\n\nDetermined using fluoroscopy. Higher numbers indicate more arterial blockage and increased heart disease risk.\n\n• 0: No blockage\n• 1-3: Number of blocked vessels',
+    thalInfo: 'Thalassemia Test:\n\n• Normal: Normal blood flow\n• Fixed Defect: No blood reaching certain area (dead tissue)\n• Reversible Defect: Reduced flow during stress but improves with rest\n\nAssesses blood flow to heart muscle.',
   }
 };
 

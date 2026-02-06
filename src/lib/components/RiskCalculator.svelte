@@ -7,6 +7,9 @@
   });
   $: t = translations[currentLang];
 
+  // Info Popover State
+  let activeInfoField = "";
+
   // Form Data
   let formData = {
     age: 50,
@@ -89,6 +92,18 @@
     predictionResult = null;
   }
 
+  function toggleInfo(field: string) {
+    if (activeInfoField === field) {
+      activeInfoField = "";
+    } else {
+      activeInfoField = field;
+    }
+  }
+
+  function closeInfo() {
+    activeInfoField = "";
+  }
+
   $: riskLevelLabels = {
     low: t.lowRisk,
     moderate: t.moderateRisk,
@@ -123,8 +138,20 @@
           <form on:submit|preventDefault={calculateRisk}>
             <div class="grid md:grid-cols-2 gap-6">
               <!-- Age -->
-              <div>
-                <label class="label">{t.age}</label>
+              <div class="relative">
+                <div class="flex items-center gap-2 mb-2">
+                  <label class="label">{t.age}</label>
+                  <button
+                    type="button"
+                    on:click={() => toggleInfo('age')}
+                    class="text-blue-500 hover:text-blue-700 focus:outline-none transition-colors"
+                    aria-label="معلومات عن العمر"
+                  >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
                 <input
                   type="number"
                   bind:value={formData.age}
@@ -133,31 +160,82 @@
                   class="input-field"
                   required
                 />
+                {#if activeInfoField === 'age'}
+                  <div class="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-lg shadow-sm" dir={currentLang === 'ar' ? 'rtl' : 'ltr'}>
+                    <p class="text-sm text-gray-700 whitespace-pre-line leading-relaxed">{t.ageInfo}</p>
+                  </div>
+                {/if}
               </div>
 
               <!-- Sex -->
-              <div>
-                <label class="label">{t.sex}</label>
+              <div class="relative">
+                <div class="flex items-center gap-2 mb-2">
+                  <label class="label">{t.sex}</label>
+                  <button
+                    type="button"
+                    on:click={() => toggleInfo('sex')}
+                    class="text-blue-500 hover:text-blue-700 focus:outline-none transition-colors"
+                    aria-label="معلومات عن الجنس"
+                  >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
                 <select bind:value={formData.sex} class="input-field">
                   <option value={1}>{t.male}</option>
                   <option value={0}>{t.female}</option>
                 </select>
+                {#if activeInfoField === 'sex'}
+                  <div class="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-lg shadow-sm" dir={currentLang === 'ar' ? 'rtl' : 'ltr'}>
+                    <p class="text-sm text-gray-700 whitespace-pre-line leading-relaxed">{t.sexInfo}</p>
+                  </div>
+                {/if}
               </div>
 
               <!-- Chest Pain Type -->
-              <div>
-                <label class="label">{t.cp}</label>
+              <div class="relative">
+                <div class="flex items-center gap-2 mb-2">
+                  <label class="label">{t.cp}</label>
+                  <button
+                    type="button"
+                    on:click={() => toggleInfo('cp')}
+                    class="text-blue-500 hover:text-blue-700 focus:outline-none transition-colors"
+                    aria-label="معلومات عن ألم الصدر"
+                  >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
                 <select bind:value={formData.cp} class="input-field">
                   <option value={0}>{t.cpType1}</option>
                   <option value={1}>{t.cpType2}</option>
                   <option value={2}>{t.cpType3}</option>
                   <option value={3}>{t.cpType4}</option>
                 </select>
+                {#if activeInfoField === 'cp'}
+                  <div class="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-lg shadow-sm" dir={currentLang === 'ar' ? 'rtl' : 'ltr'}>
+                    <p class="text-sm text-gray-700 whitespace-pre-line leading-relaxed">{t.cpInfo}</p>
+                  </div>
+                {/if}
               </div>
 
               <!-- Resting Blood Pressure -->
-              <div>
-                <label class="label">{t.trestbps}</label>
+              <div class="relative">
+                <div class="flex items-center gap-2 mb-2">
+                  <label class="label">{t.trestbps}</label>
+                  <button
+                    type="button"
+                    on:click={() => toggleInfo('trestbps')}
+                    class="text-blue-500 hover:text-blue-700 focus:outline-none transition-colors"
+                    aria-label="معلومات عن ضغط الدم"
+                  >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
                 <input
                   type="number"
                   bind:value={formData.trestbps}
@@ -166,11 +244,28 @@
                   class="input-field"
                   required
                 />
+                {#if activeInfoField === 'trestbps'}
+                  <div class="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-lg shadow-sm" dir={currentLang === 'ar' ? 'rtl' : 'ltr'}>
+                    <p class="text-sm text-gray-700 whitespace-pre-line leading-relaxed">{t.trestbpsInfo}</p>
+                  </div>
+                {/if}
               </div>
 
               <!-- Cholesterol -->
-              <div>
-                <label class="label">{t.chol}</label>
+              <div class="relative">
+                <div class="flex items-center gap-2 mb-2">
+                  <label class="label">{t.chol}</label>
+                  <button
+                    type="button"
+                    on:click={() => toggleInfo('chol')}
+                    class="text-blue-500 hover:text-blue-700 focus:outline-none transition-colors"
+                    aria-label="معلومات عن الكوليسترول"
+                  >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
                 <input
                   type="number"
                   bind:value={formData.chol}
@@ -179,30 +274,81 @@
                   class="input-field"
                   required
                 />
+                {#if activeInfoField === 'chol'}
+                  <div class="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-lg shadow-sm" dir={currentLang === 'ar' ? 'rtl' : 'ltr'}>
+                    <p class="text-sm text-gray-700 whitespace-pre-line leading-relaxed">{t.cholInfo}</p>
+                  </div>
+                {/if}
               </div>
 
               <!-- Fasting Blood Sugar -->
-              <div>
-                <label class="label">{t.fbs}</label>
+              <div class="relative">
+                <div class="flex items-center gap-2 mb-2">
+                  <label class="label">{t.fbs}</label>
+                  <button
+                    type="button"
+                    on:click={() => toggleInfo('fbs')}
+                    class="text-blue-500 hover:text-blue-700 focus:outline-none transition-colors"
+                    aria-label="معلومات عن سكر الدم"
+                  >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
                 <select bind:value={formData.fbs} class="input-field">
                   <option value={0}>{t.no}</option>
                   <option value={1}>{t.yes}</option>
                 </select>
+                {#if activeInfoField === 'fbs'}
+                  <div class="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-lg shadow-sm" dir={currentLang === 'ar' ? 'rtl' : 'ltr'}>
+                    <p class="text-sm text-gray-700 whitespace-pre-line leading-relaxed">{t.fbsInfo}</p>
+                  </div>
+                {/if}
               </div>
 
               <!-- Resting ECG -->
-              <div>
-                <label class="label">{t.restecg}</label>
+              <div class="relative">
+                <div class="flex items-center gap-2 mb-2">
+                  <label class="label">{t.restecg}</label>
+                  <button
+                    type="button"
+                    on:click={() => toggleInfo('restecg')}
+                    class="text-blue-500 hover:text-blue-700 focus:outline-none transition-colors"
+                    aria-label="معلومات عن تخطيط القلب"
+                  >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
                 <select bind:value={formData.restecg} class="input-field">
                   <option value={0}>{t.restecgType0}</option>
                   <option value={1}>{t.restecgType1}</option>
                   <option value={2}>{t.restecgType2}</option>
                 </select>
+                {#if activeInfoField === 'restecg'}
+                  <div class="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-lg shadow-sm" dir={currentLang === 'ar' ? 'rtl' : 'ltr'}>
+                    <p class="text-sm text-gray-700 whitespace-pre-line leading-relaxed">{t.restecgInfo}</p>
+                  </div>
+                {/if}
               </div>
 
               <!-- Max Heart Rate -->
-              <div>
-                <label class="label">{t.thalach}</label>
+              <div class="relative">
+                <div class="flex items-center gap-2 mb-2">
+                  <label class="label">{t.thalach}</label>
+                  <button
+                    type="button"
+                    on:click={() => toggleInfo('thalach')}
+                    class="text-blue-500 hover:text-blue-700 focus:outline-none transition-colors"
+                    aria-label="معلومات عن معدل ضربات القلب"
+                  >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
                 <input
                   type="number"
                   bind:value={formData.thalach}
@@ -211,20 +357,54 @@
                   class="input-field"
                   required
                 />
+                {#if activeInfoField === 'thalach'}
+                  <div class="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-lg shadow-sm" dir={currentLang === 'ar' ? 'rtl' : 'ltr'}>
+                    <p class="text-sm text-gray-700 whitespace-pre-line leading-relaxed">{t.thalachInfo}</p>
+                  </div>
+                {/if}
               </div>
 
               <!-- Exercise Induced Angina -->
-              <div>
-                <label class="label">{t.exang}</label>
+              <div class="relative">
+                <div class="flex items-center gap-2 mb-2">
+                  <label class="label">{t.exang}</label>
+                  <button
+                    type="button"
+                    on:click={() => toggleInfo('exang')}
+                    class="text-blue-500 hover:text-blue-700 focus:outline-none transition-colors"
+                    aria-label="معلومات عن الذبحة الصدرية"
+                  >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
                 <select bind:value={formData.exang} class="input-field">
                   <option value={0}>{t.no}</option>
                   <option value={1}>{t.yes}</option>
                 </select>
+                {#if activeInfoField === 'exang'}
+                  <div class="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-lg shadow-sm" dir={currentLang === 'ar' ? 'rtl' : 'ltr'}>
+                    <p class="text-sm text-gray-700 whitespace-pre-line leading-relaxed">{t.exangInfo}</p>
+                  </div>
+                {/if}
               </div>
 
               <!-- Oldpeak -->
-              <div>
-                <label class="label">{t.oldpeak}</label>
+              <div class="relative">
+                <div class="flex items-center gap-2 mb-2">
+                  <label class="label">{t.oldpeak}</label>
+                  <button
+                    type="button"
+                    on:click={() => toggleInfo('oldpeak')}
+                    class="text-blue-500 hover:text-blue-700 focus:outline-none transition-colors"
+                    aria-label="معلومات عن انخفاض ST"
+                  >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
                 <input
                   type="number"
                   bind:value={formData.oldpeak}
@@ -234,38 +414,94 @@
                   class="input-field"
                   required
                 />
+                {#if activeInfoField === 'oldpeak'}
+                  <div class="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-lg shadow-sm" dir={currentLang === 'ar' ? 'rtl' : 'ltr'}>
+                    <p class="text-sm text-gray-700 whitespace-pre-line leading-relaxed">{t.oldpeakInfo}</p>
+                  </div>
+                {/if}
               </div>
 
               <!-- Slope -->
-              <div>
-                <label class="label">{t.slope}</label>
+              <div class="relative">
+                <div class="flex items-center gap-2 mb-2">
+                  <label class="label">{t.slope}</label>
+                  <button
+                    type="button"
+                    on:click={() => toggleInfo('slope')}
+                    class="text-blue-500 hover:text-blue-700 focus:outline-none transition-colors"
+                    aria-label="معلومات عن ميل ST"
+                  >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
                 <select bind:value={formData.slope} class="input-field">
                   <option value={0}>{t.slopeType0}</option>
                   <option value={1}>{t.slopeType1}</option>
                   <option value={2}>{t.slopeType2}</option>
                 </select>
+                {#if activeInfoField === 'slope'}
+                  <div class="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-lg shadow-sm" dir={currentLang === 'ar' ? 'rtl' : 'ltr'}>
+                    <p class="text-sm text-gray-700 whitespace-pre-line leading-relaxed">{t.slopeInfo}</p>
+                  </div>
+                {/if}
               </div>
 
               <!-- CA -->
-              <div>
-                <label class="label">{t.ca}</label>
+              <div class="relative">
+                <div class="flex items-center gap-2 mb-2">
+                  <label class="label">{t.ca}</label>
+                  <button
+                    type="button"
+                    on:click={() => toggleInfo('ca')}
+                    class="text-blue-500 hover:text-blue-700 focus:outline-none transition-colors"
+                    aria-label="معلومات عن الأوعية الدموية"
+                  >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
                 <select bind:value={formData.ca} class="input-field">
                   <option value={0}>0</option>
                   <option value={1}>1</option>
                   <option value={2}>2</option>
                   <option value={3}>3</option>
                 </select>
+                {#if activeInfoField === 'ca'}
+                  <div class="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-lg shadow-sm" dir={currentLang === 'ar' ? 'rtl' : 'ltr'}>
+                    <p class="text-sm text-gray-700 whitespace-pre-line leading-relaxed">{t.caInfo}</p>
+                  </div>
+                {/if}
               </div>
 
               <!-- Thal -->
-              <div>
-                <label class="label">{t.thal}</label>
+              <div class="relative">
+                <div class="flex items-center gap-2 mb-2">
+                  <label class="label">{t.thal}</label>
+                  <button
+                    type="button"
+                    on:click={() => toggleInfo('thal')}
+                    class="text-blue-500 hover:text-blue-700 focus:outline-none transition-colors"
+                    aria-label="معلومات عن اختبار الثاليوم"
+                  >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
                 <select bind:value={formData.thal} class="input-field">
                   <option value={0}>{t.thalType0}</option>
                   <option value={1}>{t.thalType1}</option>
                   <option value={2}>{t.thalType2}</option>
                   <option value={3}>{t.thalType3}</option>
                 </select>
+                {#if activeInfoField === 'thal'}
+                  <div class="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-lg shadow-sm" dir={currentLang === 'ar' ? 'rtl' : 'ltr'}>
+                    <p class="text-sm text-gray-700 whitespace-pre-line leading-relaxed">{t.thalInfo}</p>
+                  </div>
+                {/if}
               </div>
             </div>
 
