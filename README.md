@@ -458,6 +458,32 @@ npm run preview
 - **Charts**: Chart.js
 - **Build**: Vite 7.x
 
+---
+
+## 📸 لقطات الشاشة
+
+### النسخة العربية 🇸🇾
+
+<div align="center">
+
+| الصفحة الرئيسية | حاسبة المخاطر | النتائج |
+|:---:|:---:|:---:|
+| ![الصفحة الرئيسية - عربي](screenshots/web-home-ar.png) | ![حاسبة المخاطر - عربي](screenshots/web-calculator-ar.png) | ![النتائج - عربي](screenshots/web-results-ar.png) |
+
+</div>
+
+### النسخة الإنجليزية 🇬🇧
+
+<div align="center">
+
+| Home Page | Risk Calculator | Results |
+|:---:|:---:|:---:|
+| ![Home - English](screenshots/web-home-en.png) | ![Calculator - English](screenshots/web-calculator-en.png) | ![Results - English](screenshots/web-results-en.png) |
+
+</div>
+
+---
+
 ### Documentation 📚
 - [Testing Documentation](TESTING_DOCUMENTATION.md)
 - [Quick Test Guide (Arabic)](QUICK_TEST_GUIDE_AR.md)
