@@ -4,6 +4,17 @@
 
 ## 🌐 تطبيق CardioGuard للكشف المبكر عن أمراض القلب - الويب
 
+## 🔗 روابط المشاريع
+
+| المشروع | التقنية | الرابط | الحالة |
+|---------|---------|--------|--------|
+| 🏠 **Hub** | Documentation | [CardioGuard-Hub](https://github.com/HazemAlhajIhmid/CardioGuard-Hub) | 📚 Docs |
+| 🌐 **Frontend** | SvelteKit | [Frontend Repo](https://github.com/HazemAlhajIhmid/Master-Thesis--CardioGuard---Early-Detection-of-Heart-Disease-System) | ✅ Live |
+| 🖥️ **Backend** | ASP.NET Core | [Backend API](https://github.com/HazemAlhajIhmid/CardioGuard-Backend-API) | ✅ Live |
+| 📱 **Android** | Kotlin | [Android App](https://github.com/HazemAlhajIhmid/CardioGuard-Android-App) | ✅ Live |
+
+---
+
 ### نظرة عامة
 **CardioGuard Web** هو تطبيق ويب حديث يستخدم تقنيات التعلم الآلي للكشف المبكر عن أمراض القلب. يعتمد التطبيق على ثلاثة نماذج للذكاء الاصطناعي لتقديم تقييم دقيق لمخاطر الإصابة بأمراض القلب.
 
